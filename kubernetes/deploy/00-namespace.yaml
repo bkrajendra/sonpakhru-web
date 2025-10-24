@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: sonpakhru
+  labels:
+    app: sonpakhru-kubernetes
+    app.kubernetes.io/name: sonpakhru-kubernetes
+    app.kubernetes.io/instance: sonpakhru-kubernetes
+    app.kubernetes.io/component: namespace
+    app.kubernetes.io/part-of: sonpakhru-kubernetes

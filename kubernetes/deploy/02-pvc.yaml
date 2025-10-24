@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: sonpakhru-content
+  namespace: sonpakhru
+  labels:
+    app: sonpakhru-kubernetes
+    app.kubernetes.io/name: sonpakhru-content
+    app.kubernetes.io/instance: sonpakhru-kubernetes
+    app.kubernetes.io/component: storage
+    app.kubernetes.io/part-of: sonpakhru-kubernetes
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi

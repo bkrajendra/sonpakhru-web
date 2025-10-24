@@ -1,0 +1,37 @@
+# Optional: If you have a domain name, you can create an Ingress resource to expose your Ghost blog to the internet.
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sonpakhru-kubernetes-ingress
+  namespace: sonpakhru
+  annotations:
+   kubernetes.io/ingress.class: nginx
+   cert-manager.io/cluster-issuer: letsencrypt-prod  
+  labels:
+    app: sonpakhru-kubernetes
+    app.kubernetes.io/name: sonpakhru-kubernetes-ingress
+    app.kubernetes.io/instance: sonpakhru-kubernetes
+    app.kubernetes.io/component: ingress
+    app.kubernetes.io/part-of: sonpakhru-kubernetes
+
+    
+spec:
+  ingressClassName: nginx # Or your ingress controller 
+  tls:
+  - hosts:
+    - sonpakhru.com
+    # Optional:
+    # - www.rajendrakhope.com
+    secretName: tls-2048-sonpakhru
+  rules:
+  - host: sonpakhru.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: sonpakhru-kubernetes-service
+            port:
+              name: spk8s
+

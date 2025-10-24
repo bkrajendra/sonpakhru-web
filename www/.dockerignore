@@ -1,0 +1,19 @@
+# .dockerignore
+# Exclude folders/files from the Docker build context for this site
+
+# Project-specific folders to ignore (requested)
+kubernetes/
+back/
+
+# Files at repository root that should not be sent to the build context
+# (If your build context is `www/` these may already be outside context, but
+# keeping them here is harmless and documents intent.)
+info.txt
+
+# Common useful ignores
+.git/
+node_modules/
+.env
+*.log
+.DS_Store
+Thumbs.db

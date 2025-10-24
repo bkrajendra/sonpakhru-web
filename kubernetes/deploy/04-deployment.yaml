@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sonpakhru-kubernetes
+  namespace: sonpakhru
+  labels:
+    app: sonpakhru-kubernetes
+    app.kubernetes.io/name: sonpakhru-kubernetes
+    app.kubernetes.io/instance: sonpakhru-kubernetes
+    app.kubernetes.io/component: sonpakhru
+    app.kubernetes.io/part-of: sonpakhru-kubernetes
+spec:
+  # If you want HA for your Ghost instance, you can increase the number of replicas AFTER creation and you need to adjust the storage class. See 02-pvc.yaml for more information.
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sonpakhru-kubernetes
+  minReadySeconds: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 3
+  revisionHistoryLimit: 4
+  progressDeadlineSeconds: 600
+  template:
+    metadata:
+      namespace: sonpakhru-kubernetes
+      labels:
+        app: sonpakhru-kubernetes
+    spec:
+      automountServiceAccountToken: false # Disable automounting of service account token
+      volumes:
+      - name: sonpakhru-content
+        persistentVolumeClaim:
+          claimName: sonpakhru-content
+      containers:
+      - name: sonpakhru-kubernetes
+        image: bkrajendra/sonpakhru:latest
+        imagePullPolicy: Always
+        ports:
+        - name: spk8s
+          containerPort: 80
+          protocol: TCP
+
+        env:
+        - name: NODE_ENV
+          value: production
+        resources:
+          limits:
+            cpu: 800m
+            memory: 800Mi
+          requests:
+            cpu: 100m
+            memory: 256Mi
+
+        volumeMounts:
+        - name: sonpakhru-content
+          mountPath: /usr/share/nginx/html/deviceflash/firmware
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 15
+      dnsPolicy: ClusterFirst
+      securityContext: {}
