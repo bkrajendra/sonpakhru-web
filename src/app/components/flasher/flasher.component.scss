@@ -1,0 +1,39 @@
+#flasher {
+    esp-web-install-button {
+        --esp-tools-button-color: var(--primary-color);
+        --esp-tools-button-border-radius: 10px;
+        --esp-tools-button-padding: 1rem 2rem;
+        --esp-tools-button-font-weight: 600;
+        --esp-tools-button-font-size: 1.1rem;
+        --esp-tools-button-hover-color: var(--primary-dark);
+    }
+
+    .card {
+        border: none;
+        background: #fff;
+        animation: fadeIn 0.6s ease-out;
+    }
+
+    .logo {
+        display: block;
+        max-width: 150px;
+        height: auto;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .form-check-input:checked {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+    }
+}

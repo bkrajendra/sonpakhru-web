@@ -1,0 +1,45 @@
+<section id="products" class="bg-light-gray section-padding">
+  <div class="container text-center">
+    <h2 class="section-title">Our Products</h2>
+    <p class="section-subtitle">Engineered for performance, designed for life. Explore our range of smart automation
+      solutions.</p>
+
+    <div class="row gy-4">
+      @for (product of products; track product.title) {
+      <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
+        <div class="card h-100 shadow border-0">
+          <img [src]="product.image" [alt]="product.title" class="card-img-top"
+            style="height: 200px; object-fit: cover;">
+          <div class="card-body d-flex flex-column">
+            <h3 class="card-title h5 fw-bold text-primary">{{ product.title }}</h3>
+            <h4 class="card-subtitle mb-2 text-muted h6">{{ product.subtitle }}</h4>
+
+            <div class="my-3">
+              @for (desc of product.description; track desc) {
+              <p class="card-text small">{{ desc }}</p>
+              }
+            </div>
+
+            <div class="mt-auto">
+              <h5 class="fw-bold small text-dark">Key Features:</h5>
+              <ul class="list-unstyled">
+                @for (feature of product.features; track feature) {
+                <li class="small d-flex"><i class="bi bi-dot me-1"></i>{{ feature }}</li>
+                }
+              </ul>
+              @if (product.variants) {
+              <h5 class="fw-bold small text-dark mt-3">Variants:</h5>
+              <ul class="list-unstyled">
+                @for (variant of product.variants; track variant) {
+                <li class="small d-flex"><i class="bi bi-dot me-1"></i>{{ variant }}</li>
+                }
+              </ul>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</section>

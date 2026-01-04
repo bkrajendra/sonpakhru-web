@@ -1,0 +1,98 @@
+@use "bootstrap/scss/bootstrap" as * with ($primary: #00b166,
+  $secondary: #ff6efc,
+  $success: #00bf29,
+  $info: #cd563b,
+  $warning: #fdca00,
+  $danger: #fe0049,
+  $light: #c7ffed,
+  $dark: #0f0a0b,
+  $white: #ffffff);
+
+/* Global variables and design tokens */
+:root {
+  --primary-color: #00b166;
+  --primary-dark: #008a50;
+  --secondary-color: #ff6efc;
+  --text-dark: #0f0a0b;
+  --text-muted: #6c757d;
+  --bg-light: #c7ffed;
+  --section-padding: 8rem 0;
+  --section-padding-mobile: 5rem 0;
+}
+
+
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+.section-padding {
+  padding: var(--section-padding);
+
+  @media (max-width: 768px) {
+    padding: var(--section-padding-mobile);
+  }
+}
+
+.bg-light-gray {
+  background-color: #f8f9fa;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+  }
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 700px;
+  margin: 0 auto 4rem auto;
+}
+
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+  }
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+
+  &:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+  }
+}
+
+.use-case-image {
+  transition: transform 0.5s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}

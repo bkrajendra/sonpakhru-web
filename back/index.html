@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-g">
+  <title>Sonpakhru - Smart Automation Solutions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+          },
+          colors: {
+            'warm-gray': {
+              '100': '#F5F5F0',
+              '200': '#E8E8E3',
+              '300': '#D9D9D4',
+            },
+            'primary': '#4ECCA3',
+            'primary-dark': '#3D9970',
+            'primary-light': '#66D9B3',
+            'secondary': '#5DADE2',
+            'secondary-dark': '#5499C7',
+            'slate-blue': '#7B8FA3',
+            'text-dark': '#333333',
+            'text-light': '#555555',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #F5F5F0; /* warm-gray-100 */
+      color: #333333; /* text-dark */
+    }
+    .section-padding {
+      @apply py-20 sm:py-32 px-6 lg:px-8;
+    }
+    .section-title {
+      @apply text-3xl sm:text-4xl font-bold text-center text-text-dark;
+    }
+    .section-subtitle {
+      @apply mt-4 text-lg text-center text-text-light max-w-2xl mx-auto;
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "rxjs": "https://esm.sh/rxjs@^7.8.2?conditions=es2015",
+    "rxjs/operators": "https://esm.sh/rxjs@^7.8.2/operators?conditions=es2015",
+    "rxjs/ajax": "https://esm.sh/rxjs@^7.8.2/ajax?conditions=es2015",
+    "rxjs/webSocket": "https://esm.sh/rxjs@^7.8.2/webSocket?conditions=es2015",
+    "rxjs/testing": "https://esm.sh/rxjs@^7.8.2/testing?conditions=es2015",
+    "rxjs/fetch": "https://esm.sh/rxjs@^7.8.2/fetch?conditions=es2015",
+    "@angular/platform-browser": "https://esm.sh/@angular/platform-browser@^21.0.6?external=rxjs",
+    "@angular/compiler": "https://esm.sh/@angular/compiler@^21.0.6?external=rxjs",
+    "@angular/common": "https://esm.sh/@angular/common@^21.0.6?external=rxjs",
+    "@angular/core": "https://esm.sh/@angular/core@^21.0.6?external=rxjs"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-warm-gray-100">
+  <app-root></app-root>
+</body>
+</html>

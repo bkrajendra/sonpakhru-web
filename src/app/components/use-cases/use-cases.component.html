@@ -1,0 +1,20 @@
+<section id="use-cases" class="bg-light-gray section-padding">
+  <div class="container text-center">
+    <h2 class="section-title">Versatile Applications</h2>
+    <p class="section-subtitle">From smart homes to smart factories, Sonpakhru solutions are adaptable to a wide range
+      of environments.</p>
+
+    <div class="row g-4">
+      @for(useCase of useCases; track useCase.title) {
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="card text-white border-0 shadow-sm">
+          <img [src]="useCase.image" [alt]="useCase.title" class="card-img" style="height: 300px; object-fit: cover;">
+          <div class="card-img-overlay d-flex align-items-end p-3" style="background-color: rgba(0,0,0,0.4)">
+            <h3 class="card-title h5 fw-bold">{{ useCase.title }}</h3>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</section>
