@@ -17,7 +17,7 @@ FROM nginx:alpine
 # Copy build artifacts from the build stage to Nginx
 # Based on angular.json, the output is in ./dist
 COPY --from=build-stage /app/dist/browser /usr/share/nginx/html
-
+COPY ./ads.txt /usr/share/nginx/html/ads.txt
 # Expose port 80
 EXPOSE 80
 
